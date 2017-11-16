@@ -110,11 +110,24 @@ public class Main {
 		figures[3] = figure4;
 		
 		System.out.println();
-		System.out.println("Points of 4 random figures :");
+		System.out.print("Points of 4 random figures : ");
 		Point[] points = FigureUtil.getPoints(figures);
 		for(Point point:points) {
 			System.out.print(point.toString());
 		}
+		System.out.println("\n");
+		
+		Drawing drawing = new Drawing();
+		drawing.add(figure);
+		drawing.add(figure2);
+		drawing.add(figure3);
+		drawing.add(figure4);
+		
+		drawing.display();
+		
+		Drawing drawing2 = new Drawing();
+		drawing2.setFigures(FigureUtil.generateFigures(5));
+		drawing2.display();
 
 	}
 

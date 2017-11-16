@@ -1,5 +1,7 @@
 package utils;
 
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.Random;
 
 public class FigureUtil {
@@ -81,7 +83,6 @@ public class FigureUtil {
 		return area;
 	}
 	
-
 	public static Point[] getPoints(Figure... figures) {
 		int newTabPointsLength = 0;
 		for(Figure figure:figures) {
@@ -97,5 +98,14 @@ public class FigureUtil {
 		}
 		
 		return tabPointsOutput;
+	}
+	
+	public static Collection<Figure> generateFigures(int nbFigures) {
+		HashSet<Figure> figures = new HashSet<>();
+		while(figures.size() < nbFigures) {
+			figures.add(getRandomFigure());
+		}
+		
+		return figures;
 	}
 }

@@ -27,7 +27,7 @@ public class Circle extends Figure implements Surfacable {
 
 	@Override
 	public String toString() {
-		return "Circle \t : [" + center + ", " + radius + "]";
+		return "Circle: [" + center + ", " + radius + "]";
 	}
 
 	public double getArea() {
@@ -39,7 +39,15 @@ public class Circle extends Figure implements Surfacable {
 		Point[] points = {this.center};
 		return points;
 	}
-	
-	
+
+	@Override
+	public int hashCode() {
+		final int prime = 100;
+		int result = 1;
+		result = prime * result + center.getX();
+		result = prime * result + center.getY();
+		result = prime * result + radius;
+		return result;
+	}
 	
 }

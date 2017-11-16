@@ -57,7 +57,7 @@ public class Rectangle extends Figure implements Surfacable {
 
 	@Override
 	public String toString() {
-		return getType() + "\t : " + leftDownPoint.toString() + getLeftUpPoint().toString() + getRightUpPoint().toString() + getRightDownPoint().toString();
+		return getType() + ": " + leftDownPoint.toString() + getLeftUpPoint().toString() + getRightUpPoint().toString() + getRightDownPoint().toString();
 	}
 	
 	public double getArea() {
@@ -68,6 +68,17 @@ public class Rectangle extends Figure implements Surfacable {
 	public Point[] getPoints() {
 		Point[] points = {getLeftDownPoint(), getLeftUpPoint(), getRightUpPoint(), getRightDownPoint()};
 		return points;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 100;
+		int result = 1;
+		result = prime * result + leftDownPoint.getX();
+		result = prime * result + leftDownPoint.getY();
+		result = prime * result + height;
+		result = prime * result + width;
+		return result;
 	}
 	
 }
