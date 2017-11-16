@@ -49,4 +49,10 @@ public class Point {
 			return false;
 		}
 	}
+	
+	public double getDistance(Point point) {
+		double part1 = Math.pow((point.getX()-this.getX()), 2);
+		double part2 = Math.pow((point.getY()-this.getY()), 2);
+		return Math.sqrt(part1 + part2);
+	}
 }

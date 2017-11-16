@@ -2,6 +2,7 @@ package utils;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Random;
 
 public class FigureUtil {
@@ -107,5 +108,17 @@ public class FigureUtil {
 		}
 		
 		return figures;
+	}
+	
+	public static Figure getFigureCoveringPoint(Point point, Drawing drawing) {
+		Collection<Figure> figures = drawing.getFigures();
+		Iterator<Figure> it = figures.iterator();
+		while(it.hasNext()) {
+			Figure figure = it.next();
+			if(figure.covers(point)) {
+				return figure;
+			}
+		}
+		return null;
 	}
 }

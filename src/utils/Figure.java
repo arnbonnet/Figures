@@ -9,4 +9,6 @@ public abstract class Figure {
 	public void display() {
 		System.out.println(this.toString());
 	}
+	
+	public abstract boolean covers(Point point);
 }

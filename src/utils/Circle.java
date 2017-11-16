@@ -54,4 +54,8 @@ public class Circle extends Figure implements Surfacable {
 		return result;
 	}
 	
+	public boolean covers(Point point) {
+		return this.center.getDistance(point) <= this.radius;
+	}
+	
 }

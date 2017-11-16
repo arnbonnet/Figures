@@ -58,4 +58,14 @@ public class Segment extends Figure {
 		return result;
 	}
 	
+	public boolean covers(Point point) {
+		if(this.isHorizontal) {
+			boolean xCoordIsInSegment = point.getX()>=this.getStart().getX() && point.getX()<=this.getEndOfSegment().getX();
+			return xCoordIsInSegment && point.getY() == this.getStart().getY();
+		} else {
+			boolean yCoordIsInSegment = point.getY()>=this.getStart().getY() && point.getY()<=this.getEndOfSegment().getY();
+			return yCoordIsInSegment && point.getX() == this.getStart().getX();
+		}
+	}
+	
 }

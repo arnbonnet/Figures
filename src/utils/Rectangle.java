@@ -88,4 +88,10 @@ public class Rectangle extends Figure implements Surfacable {
 		return result;
 	}
 	
+	public boolean covers(Point point) {
+		boolean xCoordIsInRect = point.getX()>=this.getLeftDownPoint().getX() && point.getX() <= this.getRightUpPoint().getX();
+		boolean yCoordIsInRect = point.getY()>=this.getLeftDownPoint().getY() && point.getY() <= this.getRightUpPoint().getY();
+		return xCoordIsInRect && yCoordIsInRect;
+	}
+	
 }

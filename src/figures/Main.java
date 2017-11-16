@@ -130,7 +130,30 @@ public class Main {
 		Drawing drawing2 = new Drawing();
 		drawing2.setFigures(FigureUtil.generateFigures(5));
 		drawing2.display();
-
+		
+		System.out.println();
+		System.out.println("TEST covers method");
+		System.out.println("Circle covers");
+		Circle circle4 = new Circle(new Point(3,4), 2);
+		System.out.println(circle4.covers(new Point(2,3))); //TRUE
+		System.out.println(circle4.covers(new Point(9,6))); //FALSE
+		System.out.println("Rectangle covers");
+		Rectangle rectangle4 = new Rectangle(new Point(3,4), 5, 6);
+		System.out.println(rectangle4.covers(new Point(5,6))); //TRUE
+		System.out.println(rectangle4.covers(new Point(2,2))); //FALSE
+		System.out.println("Segment covers");
+		Segment segment4 = new Segment(new Point(3,4), 5, true);
+		System.out.println(segment4.covers(new Point(5,4))); //TRUE
+		System.out.println(segment4.covers(new Point(3,12))); //FALSE
+		
+		System.out.println();
+		System.out.println("TEST getFigureCoveringPoint");
+		Figure figure5 = FigureUtil.getFigureCoveringPoint(new Point(), drawing2);
+		if(figure5 != null) {
+			System.out.println(FigureUtil.getFigureCoveringPoint(new Point(), drawing2));			
+		} else {
+			System.out.println("There is no figure of the drawing covering the point");
+		}
 	}
 
 }
