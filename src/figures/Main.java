@@ -1,5 +1,7 @@
 package figures;
 
+import java.util.Collection;
+
 import utils.*;
 
 public class Main {
@@ -49,28 +51,28 @@ public class Main {
 		
 		System.out.println();
 		System.out.print("figure.getPoints() :");
-		Point[] figurePoints = figure.getPoints();
+		Collection<Point> figurePoints = figure.getPoints();
 		for(Point point : figurePoints) {
 			System.out.print(point);
 		}
 		System.out.println();
 		
 		System.out.print("figure2.getPoints() :");
-		Point[] figure2Points = figure2.getPoints();
+		Collection<Point> figure2Points = figure2.getPoints();
 		for(Point point : figure2Points) {
 			System.out.print(point);
 		}
 		System.out.println();
 		
 		System.out.print("figure3.getPoints() :");
-		Point[] figure3Points = figure3.getPoints();
+		Collection<Point> figure3Points = figure3.getPoints();
 		for(Point point : figure3Points) {
 			System.out.print(point);
 		}
 		System.out.println();
 		
 		System.out.print("figure4.getPoints() :");
-		Point[] figure4Points = figure4.getPoints();
+		Collection<Point> figure4Points = figure4.getPoints();
 		for(Point point : figure4Points) {
 			System.out.print(point);
 		}

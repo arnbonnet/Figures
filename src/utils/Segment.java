@@ -1,5 +1,8 @@
 package utils;
 
+import java.util.Collection;
+import java.util.HashSet;
+
 public class Segment extends Figure {
 	
 	private Point start;
@@ -37,8 +40,10 @@ public class Segment extends Figure {
 	}
 
 	@Override
-	public Point[] getPoints() {
-		Point[] points = {getStart(), getEndOfSegment()};
+	public Collection<Point> getPoints() {
+		Collection<Point> points = new HashSet<>();
+		points.add(getStart());
+		points.add(getEndOfSegment());
 		return points;
 	}
 

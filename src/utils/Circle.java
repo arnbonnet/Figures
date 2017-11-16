@@ -1,5 +1,8 @@
 package utils;
 
+import java.util.Collection;
+import java.util.HashSet;
+
 public class Circle extends Figure implements Surfacable {
 	private Point center;
 	private int radius;
@@ -35,8 +38,9 @@ public class Circle extends Figure implements Surfacable {
 	}
 
 	@Override
-	public Point[] getPoints() {
-		Point[] points = {this.center};
+	public Collection<Point> getPoints() {
+		Collection<Point> points = new HashSet<>();
+		points.add(this.center);
 		return points;
 	}
 

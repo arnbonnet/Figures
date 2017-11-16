@@ -86,7 +86,7 @@ public class FigureUtil {
 	public static Point[] getPoints(Figure... figures) {
 		int newTabPointsLength = 0;
 		for(Figure figure:figures) {
-			newTabPointsLength += figure.getPoints().length;
+			newTabPointsLength += figure.getPoints().size();
 		}
 		
 		Point[] tabPointsOutput = new Point[newTabPointsLength];

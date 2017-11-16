@@ -1,5 +1,8 @@
 package utils;
 
+import java.util.Collection;
+import java.util.HashSet;
+
 public class Rectangle extends Figure implements Surfacable {
 	private Point leftDownPoint;
 	private int width;
@@ -65,8 +68,12 @@ public class Rectangle extends Figure implements Surfacable {
 	}
 
 	@Override
-	public Point[] getPoints() {
-		Point[] points = {getLeftDownPoint(), getLeftUpPoint(), getRightUpPoint(), getRightDownPoint()};
+	public Collection<Point> getPoints() {
+		Collection<Point> points = new HashSet<>();
+		points.add(getLeftDownPoint());
+		points.add(getLeftUpPoint());
+		points.add(getRightUpPoint());
+		points.add(getRightDownPoint());
 		return points;
 	}
 
