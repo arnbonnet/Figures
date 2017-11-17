@@ -18,24 +18,30 @@ public class FigureUtil {
 		return new Point(getRandomInt(100), getRandomInt(100));
 
 	}
+	
+	private static Color getRandomColor() {
+		Color values[] = Color.values();
+		int index = getRandomInt(values.length);
+		return values[index];
+	}
 
 	public static Circle getRandomCircle() {
-		return new Circle(getRandomPoint(), getRandomInt(100));
+		return new Circle(getRandomPoint(), getRandomInt(100), getRandomColor());
 	}
 
 	public static Rectangle getRandomRectangle(boolean isSquare) {
 		if(isSquare) {
-			return new Square(getRandomPoint(), getRandomInt(100));
+			return new Square(getRandomPoint(), getRandomInt(100), getRandomColor());
 		} else {
-			return new Rectangle(getRandomPoint(), getRandomInt(100), getRandomInt(100));			
+			return new Rectangle(getRandomPoint(), getRandomInt(100), getRandomInt(100), getRandomColor());			
 		}
 	}
 	
 	public static Segment getRandomSegment() {
 		if(getRandomInt(2) == 0) {
-			return new Segment(getRandomPoint(), getRandomInt(100), false);
+			return new Segment(getRandomPoint(), getRandomInt(100), false, getRandomColor());
 		} else {
-			return new Segment(getRandomPoint(), getRandomInt(100), true);
+			return new Segment(getRandomPoint(), getRandomInt(100), true, getRandomColor());
 		}
 	}
 	

@@ -6,6 +6,10 @@ public class Square extends Rectangle {
 		super(point, side, side);
 	}
 	
+	public Square(Point point, int side, Color color) {
+		super(point, side, side, color);
+	}
+	
 	public int getSide() {
 		return getWidth();
 	}

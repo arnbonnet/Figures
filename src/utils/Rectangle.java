@@ -9,6 +9,11 @@ public class Rectangle extends Figure implements Surfacable {
 	private int height;
 	
 	public Rectangle(Point point, int width, int height) {
+		this(point, width, height, Color.getDefaultColor());
+	}
+	
+	public Rectangle(Point point, int width, int height, Color color) {
+		super(color);
 		this.leftDownPoint = point.clone();
 		this.width = width;
 		this.height = height;
@@ -60,7 +65,7 @@ public class Rectangle extends Figure implements Surfacable {
 
 	@Override
 	public String toString() {
-		return getType() + ": " + leftDownPoint.toString() + getLeftUpPoint().toString() + getRightUpPoint().toString() + getRightDownPoint().toString();
+		return getType() + ": " + leftDownPoint.toString() + getLeftUpPoint().toString() + getRightUpPoint().toString() + getRightDownPoint().toString() + ", Color : " + this.getColor().getCode();
 	}
 	
 	public double getArea() {

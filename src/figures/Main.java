@@ -6,7 +6,7 @@ import java.util.Optional;
 import utils.*;
 
 public class Main {
-
+	
 	public static void main(String[] args) {
 		Point point1 = new Point(3,4);
 		System.out.println("Point : " + point1.toString());
@@ -168,8 +168,7 @@ public class Main {
 		// TODO : Tester distanceOrigin
 		// TODO : Tester closestToOriginSort
 		// TODO : Tester areaDescendingSort
-		// TODO : Tester
-		// TODO : Tester
+		// TODO : Tester gestion des couleurs de figures
 	}
 
 }

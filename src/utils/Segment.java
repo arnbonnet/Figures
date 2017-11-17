@@ -10,6 +10,11 @@ public class Segment extends Figure {
 	private boolean isHorizontal;
 	
 	public Segment(Point start, int width, boolean isHorizontal) {
+		this(start, width, isHorizontal, Color.getDefaultColor());
+	}
+	
+	public Segment(Point start, int width, boolean isHorizontal, Color color) {
+		super(color);
 		this.start = start.clone();
 		this.width = width;
 		this.isHorizontal = isHorizontal;
@@ -36,7 +41,7 @@ public class Segment extends Figure {
 	}
 	
 	public String toString() {
-		return "Seg: " + start.toString() + " to " + getEndOfSegment();
+		return "Seg: " + start.toString() + " to " + getEndOfSegment() + ", Color : " + this.getColor().getCode();
 	}
 
 	@Override
