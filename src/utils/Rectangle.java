@@ -93,5 +93,9 @@ public class Rectangle extends Figure implements Surfacable {
 		boolean yCoordIsInRect = point.getY()>=this.getLeftDownPoint().getY() && point.getY() <= this.getRightUpPoint().getY();
 		return xCoordIsInRect && yCoordIsInRect;
 	}
-	
+
+	@Override
+	public double originDistance() {
+		return this.getLeftDownPoint().getDistance(new Point(0,0));
+	}
 }

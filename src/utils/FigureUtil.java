@@ -2,8 +2,10 @@ package utils;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Iterator;
+import java.util.List;
+import java.util.Optional;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class FigureUtil {
 
@@ -110,15 +112,23 @@ public class FigureUtil {
 		return figures;
 	}
 	
-	public static Figure getFigureCoveringPoint(Point point, Drawing drawing) {
-		Collection<Figure> figures = drawing.getFigures();
-		Iterator<Figure> it = figures.iterator();
-		while(it.hasNext()) {
-			Figure figure = it.next();
-			if(figure.covers(point)) {
-				return figure;
-			}
-		}
-		return null;
+	public static Optional<Figure> getFigureCoveringPoint(Point point, Drawing drawing) {
+		return drawing.getFigures().stream()
+				.filter(f -> f.covers(point))
+				.findFirst();
+	}
+	
+	public static List<Figure> closestToOriginSort(Drawing drawing){
+		return drawing.getFigures().stream()
+				.sorted()
+				.collect(Collectors.toList());
+	}
+	
+	public static List<Surfacable> areaDescendingSort(Drawing drawing){
+		return drawing.getFigures().stream()
+				.filter(f -> f instanceof Surfacable)
+				.map(x -> (Surfacable) x)
+				.sorted( (f1,f2) -> f1.getArea() > f2.getArea() ? -1 : 1)
+				.collect(Collectors.toList());
 	}
 }

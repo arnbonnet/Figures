@@ -57,5 +57,24 @@ public class Circle extends Figure implements Surfacable {
 	public boolean covers(Point point) {
 		return this.center.getDistance(point) <= this.radius;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Circle) {
+			boolean areRadiusEqual = this.getRadius() == ((Circle)obj).getRadius();
+			boolean areCentersEqual = this.getCenter().equals(((Circle) obj).getCenter());
+			return areRadiusEqual && areCentersEqual;
+		} else {
+			return false;
+		}
+	}
+	
+	@Override
+	public double originDistance() {
+		double centerDistance = this.getCenter().getDistance(new Point(0,0));
+		double circleDistance = centerDistance - this.getRadius();
+		
+		return circleDistance;
+	}
 	
 }

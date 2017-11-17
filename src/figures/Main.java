@@ -1,6 +1,7 @@
 package figures;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import utils.*;
 
@@ -148,12 +149,27 @@ public class Main {
 		
 		System.out.println();
 		System.out.println("TEST getFigureCoveringPoint");
-		Figure figure5 = FigureUtil.getFigureCoveringPoint(new Point(), drawing2);
+		Optional<Figure> figure5 = FigureUtil.getFigureCoveringPoint(new Point(), drawing2);
 		if(figure5 != null) {
 			System.out.println(FigureUtil.getFigureCoveringPoint(new Point(), drawing2));			
 		} else {
 			System.out.println("There is no figure of the drawing covering the point");
 		}
+		
+		System.out.println();
+		System.out.println("TEST circle equals");
+		Circle circle5 = new Circle(new Point(), 5);
+		Circle circle6 = new Circle(new Point(), 5);
+		Circle circle7 = new Circle(new Point(5,9), 2);
+		System.out.println(circle5.equals(circle6)); //TRUE
+		System.out.println(circle5.equals(circle7)); // FALSE
+		
+		
+		// TODO : Tester distanceOrigin
+		// TODO : Tester closestToOriginSort
+		// TODO : Tester areaDescendingSort
+		// TODO : Tester
+		// TODO : Tester
 	}
 
 }

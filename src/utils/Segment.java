@@ -67,5 +67,10 @@ public class Segment extends Figure {
 			return yCoordIsInSegment && point.getX() == this.getStart().getX();
 		}
 	}
+
+	@Override
+	public double originDistance() {
+		return this.getStart().getDistance(new Point(0,0));
+	}
 	
 }
