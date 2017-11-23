@@ -35,7 +35,7 @@ public class Circle extends Figure implements Surfacable {
 
 	@Override
 	public String toString() {
-		return "Circle: [" + center + ", " + radius + ", Color : " + this.getColor().getCode() + "]";
+		return "CIRCLE " + this.getColor().getCode() + " " + center + " " + radius;
 	}
 
 	public double getArea() {

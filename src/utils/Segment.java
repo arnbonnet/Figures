@@ -41,7 +41,7 @@ public class Segment extends Figure {
 	}
 	
 	public String toString() {
-		return "Seg: " + start.toString() + " to " + getEndOfSegment() + ", Color : " + this.getColor().getCode();
+		return "SEGMENT " + this.getColor().getCode() + " " + start.toString() + " " + getEndOfSegment();
 	}
 
 	@Override

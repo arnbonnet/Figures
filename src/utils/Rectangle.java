@@ -65,7 +65,7 @@ public class Rectangle extends Figure implements Surfacable {
 
 	@Override
 	public String toString() {
-		return getType() + ": " + leftDownPoint.toString() + getLeftUpPoint().toString() + getRightUpPoint().toString() + getRightDownPoint().toString() + ", Color : " + this.getColor().getCode();
+		return getType() + " " + this.getColor().getCode() + " " + leftDownPoint.toString() + " " + getLeftUpPoint().toString() + " " + getRightUpPoint().toString() + " " + getRightDownPoint().toString();
 	}
 	
 	public double getArea() {

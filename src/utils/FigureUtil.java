@@ -1,5 +1,8 @@
 package utils;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
@@ -8,7 +11,12 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 public class FigureUtil {
+	private static final int X_MIN = 0;
+	private static final int X_MAX = 99;
 
+	private static final int Y_MIN = 0;
+	private static final int Y_MAX = 99;
+	
 	private static int getRandomInt(int max) {
 		Random random = new Random();
 		return random.nextInt(max);
@@ -117,6 +125,15 @@ public class FigureUtil {
 		
 		return figures;
 	}
+
+	public static Collection<Surfacable> generateSurfacables(int nbSurfacables) {
+		HashSet<Surfacable> surfacables = new HashSet<>();
+		while(surfacables.size() < nbSurfacables) {
+			surfacables.add(getRandomSurfacable());
+		}
+		
+		return surfacables;
+	}
 	
 	public static Optional<Figure> getFigureCoveringPoint(Point point, Drawing drawing) {
 		return drawing.getFigures().stream()
@@ -136,5 +153,38 @@ public class FigureUtil {
 				.map(x -> (Surfacable) x)
 				.sorted( (f1,f2) -> f1.getArea() > f2.getArea() ? -1 : 1)
 				.collect(Collectors.toList());
+	}
+	
+	public static void print(Drawing drawing) {
+		try {
+			File file = File.createTempFile("drawing", ".txt"); 
+			PrintWriter printWriter = new PrintWriter(file);
+			drawing.getFigures().stream()
+			.forEach(f -> printWriter.println(f.toString()));
+			
+			for(int x=X_MIN; x<X_MAX; x++) {
+				printWriter.print("=");
+			}
+			printWriter.println();
+			
+			for(int y=Y_MIN; y<Y_MAX; y++) {
+				for(int x=X_MIN; x<X_MAX; x++) {
+					Optional<Figure> figure = FigureUtil.getFigureCoveringPoint(new Point(x,y), drawing);
+					if(figure.isPresent()) {
+						printWriter.print(figure.get().getColor().getCode());
+					} else {
+						printWriter.print(" ");
+					}
+				}
+				printWriter.println();
+			}
+			
+			System.out.println("File location " + file.getAbsolutePath());
+			printWriter.close();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+			
 	}
 }

@@ -1,6 +1,8 @@
 package figures;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 import utils.*;
@@ -187,19 +189,38 @@ public class Main {
 		
 		System.out.println();
 		System.out.println("====== TEST getFigureCoveringPoint ======");
-		Optional<Figure> figure5 = FigureUtil.getFigureCoveringPoint(new Point(), drawing2);
-		if(figure5.isPresent()) {
+		Optional<Figure> firstFigureCoveringPoint = FigureUtil.getFigureCoveringPoint(new Point(), drawing2);
+		if(firstFigureCoveringPoint.isPresent()) {
 			System.out.println(FigureUtil.getFigureCoveringPoint(new Point(), drawing2));			
 		} else {
 			System.out.println("There is no figure in the drawing covering the point [25;25]");
-		}		
+		}
 		
+		System.out.println();
+		System.out.println("====== TEST originDistance ======");
 		// TODO : Tester distanceOrigin
 		
+		System.out.println();
 		
-		// TODO : Tester closestToOriginSort
-		// TODO : Tester areaDescendingSort
+		System.out.println("====== TEST closestToOriginSort ======");
+		System.out.print("Unsorted ");
+		drawing2.display();
+		List<Figure> figures2 = FigureUtil.closestToOriginSort(drawing2);
+		System.out.println("Sorted figures : " + figures2);
+		
+		System.out.println();
+		System.out.println("====== TEST areaDescendingSort ======");
+		Collection<Surfacable> unsortedSurfacables = new ArrayList<>();
+		unsortedSurfacables = FigureUtil.generateSurfacables(5);
+		System.out.println("Unsorted surfacable : " + unsortedSurfacables);
+		
+		List<Surfacable> sortedSurfacables = FigureUtil.areaDescendingSort(drawing2);
+		System.out.println("Sorted surfacable : " + sortedSurfacables);
+		
+		
 		// TODO : Tester gestion des couleurs de figures
+		
+		FigureUtil.print(drawing2);
 	}
 
 }

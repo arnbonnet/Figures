@@ -20,13 +20,13 @@ public abstract class Figure implements Comparable<Figure> {
 	
 	public abstract double originDistance();
 	
-	public int compareTo(Figure f){
-		if(this.equals(f)){
+	public int compareTo(Figure figure){
+		if(this.equals(figure)){
 			return 0;
 		}
 		double d1 = this.originDistance();
-		double d2 = f.originDistance();
-		return (d1-d2) > 0 ? -1 : 1;
+		double d2 = figure.originDistance();
+		return (d2-d1) > 0 ? -1 : 1;
 	}	
 
 	public Color getColor() {
